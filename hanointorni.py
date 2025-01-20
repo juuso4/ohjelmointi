@@ -1,3 +1,5 @@
+import time
+
 def get_valid_input():
     while True:
         try:
@@ -6,7 +8,7 @@ def get_valid_input():
                 print("Enter a positive number")
                 continue
 
-            if number_of_disks > 20:
+            if number_of_disks > 19:
                 moves = 2 ** number_of_disks - 1
                 response = input(
                     f"Warning: {number_of_disks} disks will require {moves} moves. Continue? (y/n): ").lower()
@@ -19,43 +21,54 @@ def get_valid_input():
             print("Enter a valid integer")
 
 
-def print_towers(A, B, C):
+def print_towers(A, B, C, move_count, start_time):
+    current_time = time.time() - start_time
+    print(f"\nMove #{move_count} (Time elapsed: {current_time:.2f} seconds)")
     print(f"A: {A}")
     print(f"B: {B}")
     print(f"C: {C}")
-    print()
 
 
-def move(n, source, auxiliary, target, A, B, C):
+def move(n, source, auxiliary, target, A, B, C, move_counter, start_time):
     if n <= 0:
-        return
+        return move_counter
 
-    move(n - 1, source, target, auxiliary, A, B, C)
+    move_counter = move(n - 1, source, target, auxiliary, A, B, C, move_counter, start_time)
     target.append(source.pop())
-    print_towers(A, B, C)
-    move(n - 1, auxiliary, source, target, A, B, C)
+    move_counter += 1
+    print_towers(A, B, C, move_counter, start_time)
+    move_counter = move(n - 1, auxiliary, source, target, A, B, C, move_counter, start_time)
+
+    return move_counter
 
 
 def tower_of_hanoi():
-
     number_of_disks = get_valid_input()
 
-
-    A = list(range(number_of_disks, 0, -1))  # Source tower
-    B = []  # Auxiliary tower
-    C = []  # Target tower
+    A = list(range(number_of_disks, 0, -1))
+    B = []
+    C = []
 
     print("\nInitial state:")
-    print_towers(A, B, C)
+    start_time = time.time()
+    print_towers(A, B, C, 0, start_time)
 
-    print("Solving Tower of Hanoi...")
-    move(number_of_disks, A, B, C, A, B, C)
+    print("\nSolving Tower of Hanoi...")
+    total_moves = move(number_of_disks, A, B, C, A, B, C, 0, start_time)
 
-    print("Puzzle solved!")
-    print(f"Total moves: {2 ** number_of_disks - 1}")
+    end_time = time.time()
+    total_time = end_time - start_time
+
+    print("\nPuzzle solved!")
+    print(f"Total moves: {total_moves}")
+    print(f"Total time: {total_time:.2f} seconds")
+    print(f"Average time per move: {(total_time / total_moves):.4f} seconds")
+
+    theoretical_moves = 2 ** number_of_disks - 1
+    print(f"Theoretical minimum moves: {theoretical_moves}")
+
 
 if __name__ == "__main__":
-    print("Welcome to Tower of Hanoi solver!")
+    print("Welcome to Tower of Hanoi solver")
+    print("Note: The number of moves required is 2^n-1, where n is the number of disks")
     tower_of_hanoi()
-
-
