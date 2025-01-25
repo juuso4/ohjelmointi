@@ -84,7 +84,7 @@ server = app.server
 
 #Custom CSS
 app.css.append_css({
-    'external_url': 'https://codepen.io/juuso/pen/ZYzmjwO'  # Dash CSS
+    'external_url': 'https://codepen.io/juuso/pen/ZYzmjwO'  #Dash CSS
 })
 
 #Layout
@@ -170,9 +170,9 @@ def update_charts(n_clicks, n_intervals, symbol, timeframe):
 
     df = calculate_technical_indicators(df)
 
-    # Price charts
+    #Price charts
     price_fig = make_subplots(rows=2, cols=1, shared_xaxes=True,
-                              vertical_spacing=0.1,  # Increased vertical spacing
+                              vertical_spacing=0.1, 
                               row_heights=[0.7, 0.3])
 
     price_fig.add_trace(go.Candlestick(x=df.index,
@@ -190,7 +190,7 @@ def update_charts(n_clicks, n_intervals, symbol, timeframe):
                                    line=dict(color='blue', width=1),
                                    name='SMA 50'), row=1, col=1)
 
-    # MACD
+    #MACD
     price_fig.add_trace(go.Bar(x=df.index, y=df['MACD_hist'],
                                name='MACD Histogram'), row=2, col=1)
     price_fig.add_trace(go.Scatter(x=df.index, y=df['MACD'],
@@ -202,14 +202,14 @@ def update_charts(n_clicks, n_intervals, symbol, timeframe):
 
     price_fig.update_layout(
         template='plotly_dark',
-        margin=dict(l=0, r=0, t=50, b=80),  # Increased bottom margin
-        height=500,  # Increased height
+        margin=dict(l=0, r=0, t=50, b=80),
+        height=500,
         title=f'{symbol} Price Analysis',
         title_x=0.5,
         xaxis=dict(
             rangeslider=dict(
                 visible=True,
-                thickness=0.1,  # Adjust slider thickness if needed
+                thickness=0.1, 
             ),
         )
     )
