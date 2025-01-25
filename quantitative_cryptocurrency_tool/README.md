@@ -10,9 +10,12 @@ cryptocurrency analytics dashboard with price forecasting capabilities, powered 
 - ⏳ Multiple timeframe analysis (1m to 1D)
 - 🎨 Dark theme UI
 
-## 🛠️ Technologies
+## 🛠️ Technologies used
 
-- <img src="(https://commons.wikimedia.org/wiki/File:Plotly_logo_for_digital_final_%286%29.png)" width="16"> **Dash** - Web framework
-- <img src="https://plotly.com/assets/images/plotly-logomark.png" width="16"> **Plotly** - Interactive visualizations
-- <img src="https://facebook.github.io/prophet/static/prophet_black.png" width="16"> **Prophet** - Time series forecasting
-- <img src="https://ccxt.com/images/ccxt_logo_dark.svg" width="16"> **CCXT** - Crypto exchange integration
+- ![Dash](https://img.shields.io/badge/Dash-008DE4?style=flat&logo=plotly&logoColor=white) - Web framework
+- ![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=flat&logo=plotly&logoColor=white) - Interactive visualizations
+- ![Prophet](https://img.shields.io/badge/Prophet-FF6F61?style=flat&logo=facebook&logoColor=white) - Time series forecasting
+- ![CCXT](https://img.shields.io/badge/CCXT-000000?style=flat&logo=bitcoin&logoColor=white) - Crypto exchange integration
+- ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) - Backend language
+- ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white) - Data manipulation
+- ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=white) - Numerical computations
