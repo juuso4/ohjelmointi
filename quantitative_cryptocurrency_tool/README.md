@@ -1,4 +1,4 @@
-# quantitative cryptocurrency analytics dashboard
+# Quantitative cryptocurrency analytics dashboard
 cryptocurrency analytics dashboard with price forecasting capabilities, powered by machine learning and technical indicators.
 
 ## 🌟 Features
