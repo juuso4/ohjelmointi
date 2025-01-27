@@ -1,0 +1,11 @@
+
+yfinance
+pandas
+numpy
+pandas_ta
+matplotlib
+seaborn
+colorama
+termcolor
+mplcursors
+scipy
